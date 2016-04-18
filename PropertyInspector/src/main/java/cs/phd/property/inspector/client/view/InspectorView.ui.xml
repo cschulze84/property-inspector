@@ -1,0 +1,103 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p="urn:import:com.vaadin.polymer.paper.widget"
+	xmlns:n="urn:import:com.vaadin.polymer.neon.widget" xmlns:i="urn:import:com.vaadin.polymer.iron.widget">
+
+	<ui:style>
+	.westPanel {
+		background-color: #39F;
+	}
+	
+	.northPanel {
+		background-color: #39F;
+	}
+	
+	.centerPanel {
+		background-color: #FFC;
+	}
+	
+	.view paper-tabs {
+		background-color: #00bcd4;
+		color: #fff;
+		box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+	}
+	</ui:style>
+	<g:DockLayoutPanel unit='PCT'>
+		<g:north size="6">
+			<g:HTMLPanel addStyleNames="toolbar-sample">
+				<style is="custom-style">
+					.toolbar-sample paper-toolbar + paper-toolbar {
+					margin-top: 20px;
+					margin-bottom: 10px
+					}
+				</style>
+				<p:PaperToolbar>
+					<p:PaperIconButton icon="menu" />
+					<span class="title">Property Inspector</span>
+					<p:PaperTabs>
+						<p:PaperTab ui:field="commonViewTab">Common View</p:PaperTab>
+						<p:PaperTab ui:field="diffViewTab">Diff View</p:PaperTab>
+						<p:PaperTab ui:field="abstractionViewTab">Abstraction View</p:PaperTab>
+					</p:PaperTabs>
+				</p:PaperToolbar>
+			</g:HTMLPanel>
+		</g:north>
+		<g:west size="15">
+			<g:VerticalPanel>
+				<g:HTMLPanel>
+					<div>
+						<p:PaperItem ui:field="filters">
+							<p:PaperItemBody attributes="two-line"
+								addStyleNames="layout vertical">
+								<div>Filters</div>
+								<div secondary="">Change Filter Settings</div>
+							</p:PaperItemBody>
+						</p:PaperItem>
+						<p:PaperItem ui:field="files">
+							<p:PaperItemBody attributes="two-line"
+								addStyleNames="layout vertical">
+								<div>Data</div>
+								<div secondary="">Manage data</div>
+							</p:PaperItemBody>
+						</p:PaperItem>
+						<p:PaperItem ui:field="abstractions">
+							<p:PaperItemBody attributes="two-line"
+								addStyleNames="layout vertical">
+								<div>Abstractions</div>
+								<div secondary="">Manage abstractions</div>
+							</p:PaperItemBody>
+						</p:PaperItem>
+					</div>
+				</g:HTMLPanel>
+				<i:IronPages ui:field="settingsMenu">
+					<div>
+						<g:HTMLPanel ui:field="fileSettingsMenu" />
+					</div>
+					<div>
+						<g:HTMLPanel ui:field="abstractionSettingsMenu" />
+					</div>
+					<div>
+						<g:HTMLPanel ui:field="filterSettingsMenu" />
+					</div>
+				</i:IronPages>
+			</g:VerticalPanel>
+
+		</g:west>
+		<g:center>
+			<g:HTMLPanel>
+				<n:NeonAnimatedPages ui:field="pages"
+					entryAnimation="slide-from-right-animation" exitAnimation="slide-left-animation">
+					<n:NeonAnimatable>
+						<g:HTMLPanel ui:field="commonPropertiesView" />
+					</n:NeonAnimatable>
+					<n:NeonAnimatable>
+						<g:HTMLPanel ui:field="diffPropertiesView" />
+					</n:NeonAnimatable>
+					<n:NeonAnimatable>
+						<g:HTMLPanel ui:field="abstractionPropertiesView" />
+					</n:NeonAnimatable>
+				</n:NeonAnimatedPages>
+			</g:HTMLPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 
