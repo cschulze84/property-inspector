@@ -1,7 +1,5 @@
 /target/
 
-/users/
-
 *.class
 
 # Package Files #
